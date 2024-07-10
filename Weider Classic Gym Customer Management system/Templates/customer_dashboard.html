@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLEX GYM</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+</head>
+<style>
+    body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+    .mySlides {display: none}
+.w3-row-padding img {margin-bottom: 12px}
+.w3-sidebar {width: 120px;background:white;}
+    body, html {height: 100%}
+    .bgimg {
+            background-image: url('../static/background3.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: cover;
+                }
+
+</style>
+<body >
+    {% include 'includes/_messages.html' %}
+    <div class="w3-top">
+        <div class="w3-bar w3-black w3-card">
+          <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+          <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+          <a href="/" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Logout</a>
+          
+        
+          <a href="/preferred_workouts" class="w3-padding-large w3-hover-red w3-hide-small w3-right">view my workouts</a>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+<div class="mySlides w3-display-container w3-center">
+    <img src="../static/lifting weights.PNG" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Welcome to Flex gym</h3>
+      <p><b>Your fitness is our priority</b></p>   
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="../static/lifting weights 1.PNG" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Want to get ripped??</h3>
+      <p><b>Flex gym is the place to be</b></p>    
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="../static/weights 1.PNG" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Not your ordinary gym equipments</h3>
+      <p><b>Flex gym has state of the art equipments to suit all your workout needs</b></p>    
+    </div>
+  </div>
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+  <h2 class="w3-wide">You can select your preferred workout below</h2>
+  </div>
+  <div class="w3-row w3-grayscale" id='gaming'>
+      
+    <div class="w3-col l3 s5">
+      {% for n in workouts %}
+      {%if n.Workout_ID=='W1'%}
+      <div class="w3-container" style="position: relative;top: 30px;">
+        <img src="../static/Treadmill.PNG" style="width:100%" class="w3-hover-opacity">
+        <p>{{n.Workout_name}}<br><b>{{n.Description}}</b></p>
+        <form action="{{url_for('selected_workouts',name=n.Workout_name,des=n.Description)}}">
+                  
+          <input type="submit" value="SELECT WORKOUT" class="btn btn-outline-secondary"> 
+      </form>
+      </div>
+      {%endif%}
+      {%if n.Workout_ID=='W2'%}
+      <div class="w3-container" style="position: relative;top: 40px;">
+        <img src="../static/Weight lifting.PNG" style="width:100%" class="w3-hover-opacity">
+        <p>{{n.Workout_name}}<br><b>{{n.Description}}</b></p>
+        <form action="{{url_for('selected_workouts',name=n.Workout_name,des=n.Description)}}">
+                  
+          <input type="submit" value="SELECT WORKOUT" class="btn btn-outline-secondary"> 
+      </form>
+      </div>
+      {%endif%}
+      {% endfor %}
+    </div>
+    
+    
+    <div class="w3-col l3 s6">
+      {% for n in workouts %}
+      {%if n.Workout_ID=='W3'%}
+      <div class="w3-container" style="position: relative;top: 10px;">
+        <img src="../static/Rowing.PNG" style="width:100%" class="w3-hover-opacity">
+        <p>{{n.Workout_name}}<br><b>{{n.Description}}</b></p>
+        <form action="{{url_for('selected_workouts',name=n.Workout_name,des=n.Description)}}">
+                  
+          <input type="submit" value="SELECT WORKOUT" class="btn btn-outline-secondary"> 
+      </form>
+      </div>
+      {%endif%}
+      {%if n.Workout_ID=='W4'%}
+      <div class="w3-container" style="position: relative;top: 20px;">
+        <img src="../static/Elliptical training.PNG" style="width:100%" class="w3-hover-opacity">
+        <p>{{n.Workout_name}}<br><b>{{n.Description}}</b></p>
+        <form action="{{url_for('selected_workouts',name=n.Workout_name,des=n.Description)}}">
+                  
+          <input type="submit" value="SELECT WORKOUT" class="btn btn-outline-secondary"> 
+      </form>
+      </div>
+      {%endif%}
+      {%endfor%}
+    </div>
+    <div class="w3-col l3 s6">
+      {% for n in workouts %}
+      {%if n.Workout_ID=='W5'%}
+      <div class="w3-container" style="position: relative;top: 10px;">
+        <img src="../static/pull up frame.PNG" style="width:100%" class="w3-hover-opacity">
+        <p>{{n.Workout_name}}<br><b>{{n.Description}}</b></p>
+        <form action="{{url_for('selected_workouts',name=n.Workout_name,des=n.Description)}}">
+                  
+          <input type="submit" value="SELECT WORKOUT" class="btn btn-outline-secondary"> 
+      </form>
+      </div>
+      {%endif%}
+      {%if n.Workout_ID=='W6'%}
+      <div class="w3-container" style="position: relative;top: 20px;">
+        <img src="../static/Chest press machine.PNG" style="width:100%" class="w3-hover-opacity">
+        <p>{{n.Workout_name}}<br><b>{{n.Description}}</b></p>
+        <form action="{{url_for('selected_workouts',name=n.Workout_name,des=n.Description)}}">
+                  
+          <input type="submit" value="SELECT WORKOUT" class="btn btn-outline-secondary"> 
+      </form>
+      </div>
+      {%endif%}
+      {% endfor %}
+    </div>
+    <div class="w3-col l3 s5">
+      {% for n in workouts %}
+      {%if n.Workout_ID=='W7'%}
+      <div class="w3-container" style="position: relative;top: 30px;">
+        <img src="../static/pull down machine.PNG" style="width:100%" class="w3-hover-opacity">
+        <p>{{n.Workout_name}}<br><b>{{n.Description}}</b></p>
+        <form action="{{url_for('selected_workouts',name=n.Workout_name,des=n.Description)}}">
+                  
+          <input type="submit" value="SELECT WORKOUT" class="btn btn-outline-secondary"> 
+      </form>
+      </div>
+      {%endif%}
+      {%if n.Workout_ID=='W8'%}
+      <div class="w3-container" style="position: relative;top: 40px;">
+        <img src="../static/Hanging leg raise.PNG" style="width:100%" class="w3-hover-opacity">
+        <p>{{n.Workout_name}}<br><b>{{n.Description}}</b></p>
+        <form action="{{url_for('selected_workouts',name=n.Workout_name,des=n.Description)}}">
+                  
+          <input type="submit" value="SELECT WORKOUT" class="btn btn-outline-secondary"> 
+      </form>
+      </div>
+      {%endif%}
+      {% endfor %}
+    </div>
+  </div>
+  <hr style="position: relative;top: 20px;">
+    <footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
+      <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+        <h2 class="w3-wide">ABOUT US</h2>
+        <p class="w3-opacity"><i>Flex gym</i></p>
+        <p class="w3-centered">Flex gym is committed to helping you, our esteemed customer, achieve your fitness goals. With state of the art equipment and very competitive trainers, we will give you value for your money!</p>
+      </div>
+    <div >
+      
+      <h4>Flex gym</h4>
+      <p><i class="fa fa-fw fa-map-marker"></i>Flex gym>
+      <p><i class="fa fa-fw fa-phone"></i> 01189569625</p>
+      <p><i class="fa fa-fw fa-envelope"></i>Flex gym@gmail.com</p>
+      <h4>We accept</h4>
+      <p><i class="fa fa-fw fa-cc-amex"></i> M-pesa</p>
+      <p><i class="fa fa-fw fa-credit-card"></i> Credit Card</p>
+      <br>
+      <i class="fa fa-facebook-official w3-hover-opacity w3-large"></i>
+      <i class="fa fa-instagram w3-hover-opacity w3-large"></i>
+      <i class="fa fa-snapchat w3-hover-opacity w3-large"></i>
+      <i class="fa fa-pinterest-p w3-hover-opacity w3-large"></i>
+      <i class="fa fa-twitter w3-hover-opacity w3-large"></i>
+      <i class="fa fa-linkedin w3-hover-opacity w3-large"></i>
+    </div>
+   </footer>
+
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
+    <script type="text/javascript"> CKEDITOR.replace('editor') </script>
+    <script>
+    var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+             var x = document.getElementsByClassName("mySlides");
+             for (i = 0; i < x.length; i++) {
+                 x[i].style.display = "none";  
+                 }
+            myIndex++;
+            if (myIndex > x.length) {myIndex = 1}    
+                x[myIndex-1].style.display = "block";  
+            setTimeout(carousel, 4000);    
+
+
+}
+     function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+    </script>
+</body>
+</html>

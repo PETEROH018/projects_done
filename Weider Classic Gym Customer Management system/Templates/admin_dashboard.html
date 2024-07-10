@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLEX GYM</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+</head>
+<style>
+    body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+.w3-sidebar {width: 120px;background:white;}
+    body, html {height: 100%}
+    .bgimg {
+            background-image: url('../static/background3.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: cover;
+                }
+
+</style>
+<body >
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-light" style="position: fixed;width: 100%;">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="color:goldenrod" href="#">FLEX GYM</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" style="color:goldenrod" href="/admin_dashboard"><img src="https://img.icons8.com/windows/50/000000/home-page.png" title="home"/></a>
+          </li>
+
+         </ul>
+         <ul class="nav navbar-nav navbar-right">
+            {% if session.logged_in %}
+
+              <li class="nav-item"><a class="nav-link" style="color:goldenrod" href="/">Log out</a></li>
+              <li style="position: relative;left: 1100px;">
+              <div class="w3-white w3-large" style="max-width:400px;margin:auto">
+                <div class="w3-button w3-padding-10 w3-right" onclick="w3_open()">☰</div>
+              </div>
+              </li>
+              {% else %}
+              <li class="nav-item"><a class="nav-link" style="color:goldenrod" href="/admin_login">Login</a></li>
+            {% endif %}
+          </ul>
+
+      </div>
+    </div>
+
+  </nav>
+
+
+
+
+
+
+
+{% include 'includes/_messages.html' %}
+<nav class="w3-sidebar w3-bar-block w3-black w3-top w3-large w3-animate-left w3-round-large " style="display:none;z-index:2;width:30%;min-width:200px"  id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()"
+  class="w3-bar-item w3-button">Close Menu</a>
+  <a href="#service" onclick="w3_close()" class="w3-bar-item w3-button" style="color: goldenrod;">Register customer</a>
+  <a href="#call" onclick="w3_close()" class="w3-bar-item w3-button" style="color: goldenrod;">Update customer subscription</a>
+  <a href="#stocking" onclick="w3_close()" class="w3-bar-item w3-button" style="color: goldenrod;">Update workout routine</a>
+  <a href="#marketing" onclick="w3_close()" class="w3-bar-item w3-button" style="color: goldenrod;">Manage gym equipments</a>
+  <a href="#finances" onclick="w3_close()" class="w3-bar-item w3-button" style="color: goldenrod;">Check gym financial status</a>
+</nav>
+
+<div class="w3-padding-large" id="main">
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="service">
+
+    <img src="../static/register 2.PNG" alt="" class="w3-image" width="1500" height="1108">
+
+    <form action="{{url_for('registered_customers')}}"style="position: relative;top: 10px;">
+
+      <input type="submit" value="VIEW REGISTERED CUSTOMERS" class="btn btn-outline-secondary" style="color:goldenrod">
+  </form>
+  </header>
+</div>
+<div class="w3-padding-large" id="call">
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="call">
+
+    <img src="../static/lifting weights.PNG" alt="" class="w3-image" width="1500" height="1108">
+
+    <form action="{{url_for('update_customer_subscription')}}" style="position: relative;top: 10px;">
+
+      <input type="submit" value="UPDATE CUSTOMER SUBSCRIPTION" class="btn btn-outline-secondary" style="color:goldenrod">
+  </form>
+  </header>
+</div>
+<div class="w3-padding-large" id="stocking">
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="stocking">
+
+    <img src="../static/lifting weights 1.PNG" alt="" class="w3-image" width="1500" height="1108">
+
+    <form action="{{url_for('update_routine')}}" style="position: relative;top: 10px;">
+
+      <input type="submit" value="UPDATE WORKOUT ROUTINE" class="btn btn-outline-secondary" style="color:goldenrod">
+  </form>
+  </header>
+</div>
+<div class="w3-padding-large" id="marketing">
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="marketing">
+
+    <img src="../static/gym equipment.PNG" alt="" class="w3-image" width="1500" height="1108">
+
+    <form action="{{url_for('add_equipments')}}" style="position: relative;top: 10px;">
+
+      <input type="submit" value="MANAGE GYM EQUIPMENTS" class="btn btn-outline-secondary" style="color:goldenrod">
+  </form>
+  </header>
+</div>
+<div class="w3-padding-large" id="finances">
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="marketing">
+
+    <img src="../static/finance.PNG" alt="" class="w3-image" width="1500" height="1108">
+
+    <form action="{{url_for('financial_report')}}" style="position: relative;top: 10px;">
+
+      <input type="submit" value="CHECK GYM FINANCIAL STATUS" class="btn btn-outline-secondary" style="color:goldenrod">
+  </form>
+  </header>
+</div>
+
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
+    <script type="text/javascript"> CKEDITOR.replace('editor') </script>
+    <script>
+     function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark"  style="position: fixed;width: 100%;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">WEIDER CLASSIC GYM</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/admin_dashboard"><img src="https://img.icons8.com/windows/50/000000/home-page.png" title="home"/></a>
+          </li>
+          
+         </ul>
+         <ul class="nav navbar-nav navbar-right">
+            {% if session.logged_in %}
+              
+              <li class="nav-item"><a class="nav-link" href="/">Log out</a></li>
+              
+              {% else %}
+              <li class="nav-item"><a class="nav-link" href="/admin_login">Login</a></li>
+            {% endif %}
+          </ul>
+        
+      </div>
+    </div>
+
+  </nav>
+    
+  
+      

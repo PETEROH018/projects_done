@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLEX GYM</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+</head>
+<style>
+    body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+.w3-sidebar {width: 120px;background:white;}
+    body, html {height: 100%}
+    .bgimg {
+            background-image: url('../static/background3.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: cover;
+                }
+
+</style>
+<body >
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark" >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">FLEX GYM</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+
+             <ul class="nav navbar-nav navbar-right">
+
+
+
+          </div>
+        </div>
+
+      </nav>
+    {% include 'includes/_messages.html' %}
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+    <div class="w3-display-middle">
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form class="w3-container" method="POST" action = "">
+        <div class="form-group" style="color:goldenrod;" input type="text">
+            {{ render_field(form.name, class = "form-control",type="text",placeholder="text only",pattern="[A-Z]{30}") }}
+        </div>
+        <div class="form-group" style="color:goldenrod;" >
+            {{ render_field(form.phone_number, class = "form-control",type="tel",placeholder="07xxxxxxxx",pattern="[0-9]{10}") }}
+        </div>
+        <div class="form-group" style="color:goldenrod;">
+            {{ render_field(form.email, class = "form-control") }}
+        </div>
+        <div class="form-group" style="color:goldenrod;">
+            {{ render_field(form.home_address, class = "form-control") }}
+        </div>
+        <div class="form-group" style="color:goldenrod;">
+          {{ render_field(form.username, class = "form-control") }}
+      </div>
+      <div class="form-group" style="color:goldenrod;">
+        {{ render_field(form.password, class = "form-control") }}
+    </div>
+        <form >
+
+            <input type="submit" value="REGISTER" class="btn-outline-secondary"style="color:goldenrod;">
+        </form>
+        <form action="{{url_for('registered_customers')}}" style="position: relative;top: 10px;left: 17px;">
+
+
+    </form>
+    </div>
+    </div>
+
+
+
+
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
+    <script type="text/javascript"> CKEDITOR.replace('editor') </script>
+</body>
+</html>
