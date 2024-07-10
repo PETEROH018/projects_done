@@ -1,0 +1,22 @@
+{%extends "admin_layout.html"%}
+{%block body%}
+ <div class="container">
+<h1 style="color: goldenrod;">Update customer status</h1>
+{% from "includes/_formhelpers.html" import render_field %}
+
+<form method="POST" action = "" >
+    <div class="form-group" style="color: goldenrod;">
+        {{ render_field(form2.customer_id2, class = "form-control") }}
+    </div>
+    <div class="form-group" style="color: goldenrod;">
+        {{ render_field(form2.customer_category, class = "form-control") }}
+    </div>
+
+ <form >
+        <input type="submit" value="SUBMIT" class="btn btn-outline-dark">
+    </form>
+</form>
+
+</div>
+ </div>
+{%endblock%}

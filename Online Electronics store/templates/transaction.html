@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electroniks</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+   
+    <style>
+        body,h1 {font-family: "Raleway", sans-serif}
+        body, html {height: 100%}
+        .mySlides {display: none}
+        
+        .bgimg {
+  background-image: url('../static/jorge-salvador-vruAZdZzQR0-unsplash.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+        
+    </style>
+</head>
+<body>
+    
+    
+   
+    
+        <div  class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+            <div>{% include 'includes/_navbar.html' %}</div>
+            <div class="container">
+                {% include 'includes/_messages.html' %}
+            <div class="w3-display-middle">
+                <div class='container'>
+            <h1 class='alert-heading'>KENYA SHILLINGS <span style= color:darkgoldenrod>{{price}}</span> WILL BE DEDUCTED FROM YOUR ACCOUNT</h1>
+            <p class='p-md-0'>Enter account number</p>
+            {% from "includes/_formhelpers.html" import render_field %}
+            
+                <form method="POST" action = "">
+                    <div class="form-group">
+                        {{ render_field(txn.acc_no, class = "form-control") }}
+                    </div>
+                    <form >
+                       
+                        <input type="submit" value="SUBMIT" class="btn btn-outline-primary">
+                    </form>
+                </form>
+                <form action="{{url_for('authorise_transaction')}}" style="align-self: center;">
+                       
+                    <input type="submit" value="AUTHORISE TRANSACTION" class="btn btn-outline-primary" style="position: relative;top: 10px;">
+                </form>
+            </div>
+            </div>
+        
+    </div>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
+    <script type="text/javascript"> CKEDITOR.replace('editor') </script>
+  
+    
+    <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+             var x = document.getElementsByClassName("mySlides");
+             for (i = 0; i < x.length; i++) {
+                 x[i].style.display = "none";  
+                 }
+            myIndex++;
+            if (myIndex > x.length) {myIndex = 1}    
+                x[myIndex-1].style.display = "block";  
+            setTimeout(carousel, 4000);    
+
+
+}
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+
+    </script>
+    
+    
+</body>
+</html>

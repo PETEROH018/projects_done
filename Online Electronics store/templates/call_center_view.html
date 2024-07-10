@@ -1,0 +1,73 @@
+{%extends "admin_layout.html"%}
+{%block body%}
+ <div class="container">
+<h1 style="color: goldenrod;">Customer_details:</h1>
+
+<table class="table table-striped table-dark"style="width: 100%;">
+    <tr>
+        <th>CUSTOMER_ID</th>
+        <th>CUSTOMER_NAME</th>
+        <th>CUSTOMER_PHONE_NO</th>
+        <th>ACC_NO</th>
+        <th>LOCATION</th>
+        <th>CUSTOMER_CATEGORY</th>
+        <th>UNITS_BOUGHT</th>
+
+    </tr>
+
+    {% for n in result %}
+
+    <tr>
+        <td>{{n.customer_id  }}</td>
+        <td>{{n.customer_name}}</td>
+        <td>{{n.customer_phone_no}}</td>
+        <td>{{n.acc_no}}</td>
+        <td>{{n.location}}</td>
+        <td>{{n.customer_category}}</td>
+        <td>{{n.units_bought}}</td>
+
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+<div class="w3-display-middle">
+<div class="container">
+<h1 style="color: goldenrod;">Enter customer phone orders here</h1>
+{% from "includes/_formhelpers.html" import render_field %}
+
+<form method="POST" action = "" >
+    <div class="form-group" style="color: goldenrod;">
+        {{ render_field(form.customer_id, class = "form-control") }}
+    </div>
+    <div class="form-group" style="color: goldenrod;">
+        {{ render_field(form.product_id, class = "form-control") }}
+    </div>
+    <div class="form-group" style="color: goldenrod;">
+        {{ render_field(form.acc_no, class = "form-control") }}
+    </div>
+    <form >
+
+        <input type="submit" value="SUBMIT" class="btn btn-outline-dark">
+    </form>
+</form>
+<h1 style="color: goldenrod;">Update customer status</h1>
+{% from "includes/_formhelpers.html" import render_field %}
+
+<form method="POST" action = "" >
+    <div class="form-group" style="color: goldenrod;">
+        {{ render_field(form2.customer_id2, class = "form-control") }}
+    </div>
+    <div class="form-group" style="color: goldenrod;">
+        {{ render_field(form2.customer_category, class = "form-control") }}
+    </div>
+
+ <form >
+        <input type="submit" value="SUBMIT" class="btn btn-outline-dark">
+    </form>
+</form>
+
+</div>
+ </div>
+{%endblock%}

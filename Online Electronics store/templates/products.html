@@ -1,0 +1,346 @@
+{% extends 'layouts.html' %}
+
+{% block body %}
+<nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-white w3-large " style="z-index:3;width:150px;font-weight:bold;display:none;right:0;" id="mySidebar">
+  <p style="position: relative;text-align: center;">PRODUCT CATEGORIES</p>
+  <a href="javascript:void()" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-32">CLOSE</a> 
+  <a href="#gaming" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Gaming</a> 
+  <a href="#acc" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Phone accessories</a> 
+  <a href="#compound package" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Compound package</a>
+</nav>
+<header class="w3-container w3-top w3-transparent w3-xlarge w3-padding-16 " style="position: relative;top: 0px;height: 120px;">
+  <img src="../static/logo.PNG" style="height:100px;width:100px;background-color: darkgray;">
+  <a href="javascript:void(0)" class="w3-right  w3-transparent" onclick="w3_open()"><img src="https://img.icons8.com/cotton/64/000000/menu.png" title="Select category"/></a>
+</header>
+<header class="w3-display-container w3-content w3-center" style="max-width:1500px;height: 200px;">
+  <img class="w3-image" src="../static/jorge-salvador-vruAZdZzQR0-unsplash.jpg" alt="Me" width="1500" height="20px">
+  <div class="w3-display-middle w3-padding-large w3-border w3-wide w3-text-light-grey w3-center">
+    <h1  class="w3-hide-medium w3-hide-small w3-xxxlarge"><small> Welcome <span style="color: gray;">{{session.username}}</span></small></h1>
+    <h5 class="w3-hide-large" style="white-space:nowrap"><small> Welcome <span style="color: gray;">{{session.username}}</span></small></h5>
+    
+  </div>
+ 
+</header>
+
+<div class="mySlides w3-display-container w3-center">
+    <img src="../static/Gaming.PNG" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>For all your gaming needs</h3>
+      <p><b>All your gaming solutions in one place</b></p>   
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="../static/monitor.PNG" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Wide display monitors</h3>
+      <p><b>Crystal clear image quality to make you have that epic movie experience</b></p>    
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="../static/zany-jadraque-YLdC7qO9M3g-unsplash.jpg" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Not your ordinary mouse</h3>
+      <p><b>Get a mouse with free stickers from your favorite game</b></p>    
+    </div>
+  </div>
+  
+    <div class="w3-row w3-grayscale" id='gaming'>
+      
+      <div class="w3-col l3 s6">
+        {% for n in products %}
+        {%if n.product_id==14%}
+        <div class="w3-container" style="position: relative;top: 30px;">
+          <img src="../static/gaming console.PNG" style="width:100%" class="w3-hover-opacity">
+          <p>{{n.product_name}}<br><b>{{n.unit_price}}</b></p>
+          <form action="{{url_for('add_to_cart', id=n.product_id,name=n.product_name,price=n.unit_price)}}">
+                    
+            <input type="submit" value="ADD TO CART" class="btn btn-outline-secondary"> <i class="fa fa-shopping-cart"></i>
+        </form>
+        </div>
+        {%endif%}
+        {%if n.product_id==2%}
+        <div class="w3-container" style="position: relative;top: 20px;">
+          <img src="../static/gaming keyboard.PNG" style="width:100%" class="w3-hover-opacity">
+          <p>{{n.product_name}}<br><b>{{n.unit_price}}</b></p>
+          <form action="{{url_for('add_to_cart', id=n.product_id,name=n.product_name,price=n.unit_price)}}">
+                    
+            <input type="submit" value="ADD TO CART" class="btn btn-outline-secondary"> <i class="fa fa-shopping-cart"></i>
+        </form>
+        </div>
+        {%endif%}
+        {% endfor %}
+      </div>
+      
+      
+      <div class="w3-col l3 s6">
+        {% for n in products %}
+        {%if n.product_id==3%}
+        <div class="w3-container" style="position: relative;top: 10px;">
+          <img src="../static/zany-jadraque-YLdC7qO9M3g-unsplash.jpg" style="width:100%" class="w3-hover-opacity">
+          <p>{{n.product_name}}<br><b>{{n.unit_price}}</b></p>
+          <form action="{{url_for('add_to_cart', id=n.product_id,name=n.product_name,price=n.unit_price)}}">
+                    
+            <input type="submit" value="ADD TO CART" class="btn btn-outline-secondary"> <i class="fa fa-shopping-cart"></i>
+        </form>
+        </div>
+        {%endif%}
+        {%if n.product_id==13%}
+        <div class="w3-container" style="position: relative;top: 20px;">
+          <img src="../static/gaming laptop 2.PNG" style="width:100%" class="w3-hover-opacity">
+          <p>{{n.product_name}}<br><b>{{n.unit_price}}</b></p>
+          <form action="{{url_for('add_to_cart', id=n.product_id,name=n.product_name,price=n.unit_price)}}">
+                    
+            <input type="submit" value="ADD TO CART" class="btn btn-outline-secondary"> <i class="fa fa-shopping-cart"></i>
+        </form>
+        </div>
+        {%endif%}
+        {%endfor%}
+      </div>
+      <div class="w3-col l3 s6">
+        {% for n in products %}
+        {%if n.product_id==8%}
+        <div class="w3-container" style="position: relative;top: 10px;">
+          <img src="../static/gaming pad2.PNG" style="width:100%" class="w3-hover-opacity">
+          <p>{{n.product_name}}<br><b>{{n.unit_price}}</b></p>
+          <form action="{{url_for('add_to_cart', id=n.product_id,name=n.product_name,price=n.unit_price)}}">
+                    
+            <input type="submit" value="ADD TO CART" class="btn btn-outline-secondary"> <i class="fa fa-shopping-cart"></i>
+        </form>
+        </div>
+        {%endif%}
+        {%if n.product_id==9%}
+        <div class="w3-container" style="position: relative;top: 90px;">
+          <img src="../static/graphics card1.PNG" style="width:100%" class="w3-hover-opacity">
+          <p>{{n.product_name}}<br><b>{{n.unit_price}}</b></p>
+          <form action="{{url_for('add_to_cart', id=n.product_id,name=n.product_name,price=n.unit_price)}}">
+                    
+            <input type="submit" value="ADD TO CART" class="btn btn-outline-secondary"> <i class="fa fa-shopping-cart"></i>
+        </form>
+        </div>
+        {%endif%}
+        {% endfor %}
+      </div>
+        <div class="w3-col l3 s6">
+        {% for n in products %}
+        {%if n.product_id==10%}
+        <div class="w3-container" style="position: relative;top: 10px;">
+          <img src="../static/RAM.jpeg" style="width:100%" class="w3-hover-opacity">
+          <p>{{n.product_name}}<br><b>{{n.unit_price}}</b></p>
+          <form action="{{url_for('add_to_cart', id=n.product_id,name=n.product_name,price=n.unit_price)}}">
+                    
+            <input type="submit" value="ADD TO CART" class="btn btn-outline-secondary" > <i class="fa fa-shopping-cart"></i>
+        </form>
+        </div>
+        {%endif%}
+        {%if n.product_id==11%}
+        <div class="w3-container" style="position: relative;top: 20px;">
+          <img src="../static/monitor.PNG" style="width:100%" class="w3-hover-opacity">
+          <p>{{n.product_name}}<br><b>{{n.unit_price}}</b></p>
+          <form action="{{url_for('add_to_cart', id=n.product_id,name=n.product_name,price=n.unit_price)}}">
+                    
+            <input type="submit" value="ADD TO CART" class="btn btn-outline-secondary"> <i class="fa fa-shopping-cart"></i>
+        </form>
+        </div>
+        {%endif%}
+        {% endfor %}
+      </div>
+     
+    </div>
+    <div class="w3-row w3-grayscale" id="acc">
+   
+      <div class="w3-col l3 s6">
+        {% for n in products %}
+        {%if n.product_id==15%}
+        <div class="w3-container" style="position: relative;top: 30px;">
+          <img src="../static/samsung 1.PNG" style="width:100%" class="w3-hover-opacity">
+          <p>{{n.product_name}}<br><b>{{n.unit_price}}</b></p>
+          <form action="{{url_for('add_to_cart', id=n.product_id,name=n.product_name,price=n.unit_price)}}">
+                    
+            <input type="submit" value="ADD TO CART" class="btn btn-outline-secondary"> <i class="fa fa-shopping-cart"></i>
+        </form>
+        </div>
+        {%endif%}
+        {%if n.product_id==16%}
+        <div class="w3-container" style="position: relative;top: 30px;">
+          <img src="../static/samsung 2.PNG" style="width:100%" class="w3-hover-opacity">
+          <p>{{n.product_name}}<br><b>{{n.unit_price}}</b></p>
+          <form action="{{url_for('add_to_cart', id=n.product_id,name=n.product_name,price=n.unit_price)}}">
+                    
+            <input type="submit" value="ADD TO CART" class="btn btn-outline-secondary"> <i class="fa fa-shopping-cart"></i>
+        </form>
+        </div>
+        {%endif%}
+        {% endfor %}
+      </div>
+      
+      
+      <div class="w3-col l3 s6">
+        {% for n in products %}
+        {%if n.product_id==17%}
+        <div class="w3-container" style="position: relative;top: 20px;">
+          <img src="../static/Infinix1.PNG" style="width:100%" class="w3-hover-opacity">
+          <p>{{n.product_name}}<br><b>{{n.unit_price}}</b></p>
+          <form action="{{url_for('add_to_cart', id=n.product_id,name=n.product_name,price=n.unit_price)}}">
+                    
+            <input type="submit" value="ADD TO CART" class="btn btn-outline-secondary"> <i class="fa fa-shopping-cart"></i>
+        </form>
+        </div>
+        {%endif%}
+        {%if n.product_id==18%}
+        <div class="w3-container" style="position: relative;top: 20px;">
+          <img src="../static/Screen magnifier1.PNG" style="width:100%" class="w3-hover-opacity">
+          <p>{{n.product_name}}<br><b>{{n.unit_price}}</b></p>
+          <form action="{{url_for('add_to_cart', id=n.product_id,name=n.product_name,price=n.unit_price)}}">
+                    
+            <input type="submit" value="ADD TO CART" class="btn btn-outline-secondary"> <i class="fa fa-shopping-cart"></i>
+        </form>
+        </div>
+        {%endif%}
+        {%endfor%}
+      </div>
+      <div class="w3-col l3 s6">
+        {% for n in products %}
+        {%if n.product_id==19%}
+        <div class="w3-container" style="position: relative;top: 10px;">
+          <img src="../static/Bluetooth headset.PNG" style="width:100%" class="w3-hover-opacity">
+          <p>{{n.product_name}}<br><b>{{n.unit_price}}</b></p>
+          <form action="{{url_for('add_to_cart', id=n.product_id,name=n.product_name,price=n.unit_price)}}">
+                    
+            <input type="submit" value="ADD TO CART" class="btn btn-outline-secondary"> <i class="fa fa-shopping-cart"></i>
+        </form>
+        </div>
+        {%endif%}
+        {%if n.product_id==20%}
+        <div class="w3-container" style="position: relative;top: 90px;">
+          <img src="../static/telephoto lens.PNG" style="width:100%" class="w3-hover-opacity">
+          <p>{{n.product_name}}<br><b>{{n.unit_price}}</b></p>
+          <form action="{{url_for('add_to_cart', id=n.product_id,name=n.product_name,price=n.unit_price)}}">
+                    
+            <input type="submit" value="ADD TO CART" class="btn btn-outline-secondary"> <i class="fa fa-shopping-cart"></i>
+        </form>
+        </div>
+        {%endif%}
+        {% endfor %}
+      </div>
+        <div class="w3-col l3 s6">
+        {% for n in products %}
+        {%if n.product_id==21%}
+        <div class="w3-container" style="position: relative;top: 20px;">
+          <img src="../static/iphone7.PNG" style="width:100%" class="w3-hover-opacity">
+          <p>{{n.product_name}}<br><b>{{n.unit_price}}</b></p>
+          <form action="{{url_for('add_to_cart', id=n.product_id,name=n.product_name,price=n.unit_price)}}">
+                    
+            <input type="submit" value="ADD TO CART" class="btn btn-outline-secondary" > <i class="fa fa-shopping-cart"></i>
+        </form>
+        </div>
+        {%endif%}
+        {%if n.product_id==22%}
+        <div class="w3-container" style="position: relative;top: 20px;">
+          <img src="../static/Grip handle for gamig.PNG" style="width:100%" class="w3-hover-opacity">
+          <p>{{n.product_name}}<br><b>{{n.unit_price}}</b></p>
+          <form action="{{url_for('add_to_cart', id=n.product_id,name=n.product_name,price=n.unit_price)}}">
+                    
+            <input type="submit" value="ADD TO CART" class="btn btn-outline-secondary"> <i class="fa fa-shopping-cart"></i>
+        </form>
+        </div>
+        {%endif%}
+        {% endfor %}
+      </div>
+      
+     
+    </div>
+    <div class="w3-row w3-grayscale" id='compound package'>
+      
+      <div class="w3-col l3 s6">
+        {% for n in products %}
+        {%if n.product_id==23%}
+        <div class="w3-container" style="position: relative;top: 30px;">
+          <img src="../static/gaming set.PNG" style="width:100%" class="w3-hover-opacity">
+          <p>{{n.product_name}}<br><b>{{n.unit_price}}</b></p>
+          <form action="{{url_for('add_to_cart', id=n.product_id,name=n.product_name,price=n.unit_price)}}">
+                    
+            <input type="submit" value="ADD TO CART" class="btn btn-outline-secondary"> <i class="fa fa-shopping-cart"></i>
+        </form>
+        </div>
+        {%endif%}
+        {% endfor %}
+      </div>
+      
+      
+      <div class="w3-col l3 s6">
+        {% for n in products %}
+        {%if n.product_id==24%}
+        <div class="w3-container" style="position: relative;top: 10px;">
+          <img src="../static/office set.PNG" style="width:100%" class="w3-hover-opacity">
+          <p>{{n.product_name}}<br><b>{{n.unit_price}}</b></p>
+          <form action="{{url_for('add_to_cart', id=n.product_id,name=n.product_name,price=n.unit_price)}}">
+                    
+            <input type="submit" value="ADD TO CART" class="btn btn-outline-secondary"> <i class="fa fa-shopping-cart"></i>
+        </form>
+        </div>
+        {%endif%}
+        {%endfor%}
+      </div>
+      <div class="w3-col l3 s6">
+        {% for n in products %}
+        {%if n.product_id==25%}
+        <div class="w3-container" style="position: relative;top: 10px;">
+          <img src="../static/universirty student starter pack.PNG" style="width:100%" class="w3-hover-opacity">
+          <p>{{n.product_name}}<br><b>{{n.unit_price}}</b></p>
+          <form action="{{url_for('add_to_cart', id=n.product_id,name=n.product_name,price=n.unit_price)}}">
+                    
+            <input type="submit" value="ADD TO CART" class="btn btn-outline-secondary"> <i class="fa fa-shopping-cart"></i>
+        </form>
+        </div>
+       
+        {%endif%}
+        {% endfor %}
+      </div>
+        <div class="w3-col l3 s6">
+        {% for n in products %}
+        {%if n.product_id==26%}
+        <div class="w3-container" style="position: relative;top: 30px;">
+          <img src="../static/Samsung collection.PNG" style="width:100%" class="w3-hover-opacity">
+          <p>{{n.product_name}}<br><b>{{n.unit_price}}</b></p>
+          <form action="{{url_for('add_to_cart', id=n.product_id,name=n.product_name,price=n.unit_price)}}">
+                    
+            <input type="submit" value="ADD TO CART" class="btn btn-outline-secondary" > <i class="fa fa-shopping-cart"></i>
+        </form>
+        </div>
+        
+        {%endif%}
+        {% endfor %}
+      </div>
+     
+    </div>
+    <hr style="position: relative;top: 20px;">
+    <footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
+      <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+        <h2 class="w3-wide">ABOUT US</h2>
+        <p class="w3-opacity"><i>Electroniks</i></p>
+        <p class="w3-centered">Electroniks store deals with a wide range of electronics that suit all your engineering and also home needs.Our product categories include gaming equipment, offfice computers
+          and even customised packages for everyone </p>
+      </div>
+    <div >
+      
+      <h4>Electroniks</h4>
+      <p><i class="fa fa-fw fa-map-marker"></i>Electroniks>
+      <p><i class="fa fa-fw fa-phone"></i> 01189569625</p>
+      <p><i class="fa fa-fw fa-envelope"></i>Electroniks@gmail.com</p>
+      <h4>We accept</h4>
+      <p><i class="fa fa-fw fa-cc-amex"></i> Amex</p>
+      <p><i class="fa fa-fw fa-credit-card"></i> Credit Card</p>
+      <br>
+      <i class="fa fa-facebook-official w3-hover-opacity w3-large"></i>
+      <i class="fa fa-instagram w3-hover-opacity w3-large"></i>
+      <i class="fa fa-snapchat w3-hover-opacity w3-large"></i>
+      <i class="fa fa-pinterest-p w3-hover-opacity w3-large"></i>
+      <i class="fa fa-twitter w3-hover-opacity w3-large"></i>
+      <i class="fa fa-linkedin w3-hover-opacity w3-large"></i>
+    </div>
+   </footer>   
+  
+   
+  
+  
+{% endblock %}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electroniks</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <style>
+    body,h1 {font-family: "Raleway", sans-serif}
+    body, html {height: 100%}
+    .bgimg {
+        background-image: url('../static/jorge-salvador-vruAZdZzQR0-unsplash.jpg');
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+            }
+    @keyframes text_reveal_box {
+    50%{
+        width: 100%;
+        left:0px;
+    }
+    100%{
+        width:0%;
+        left:100%;
+
+    }
+    }
+    @keyframes text_reveal {
+    100%{
+        color:cornflowerblue;
+    }
+    
+    }
+            h1{
+    display:block;
+    width:fit-content;
+    font-size: 2rem;
+    position:relative;
+    color:transparent;
+    animation:text_reveal .5s ease;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+            }
+            h1 span{
+    position:absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width:0%;
+    background-color: cornflowerblue;
+    animation:text_reveal_box 1s ease;
+    animation-delay: .5s;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+ 
+        <div class="w3-display-middle">
+            <div class='container'>
+                <h1>Welcome to Electroniks<span></span></h1>
+                    <form action="{{url_for('register')}}">
+                        
+                        <input type="submit" value="REGISTER" class="btn btn-outline-primary">
+                    </form>
+                    <hr>
+                    <form action="{{url_for('login')}}" style="position: relative;top: 10px;">
+                        
+                        <input type="submit" value="LOGIN" class="btn btn-outline-primary">
+                    </form>
+                    <hr>
+                    <form action="{{url_for('admin_login')}}" style="position: relative;top: 10px;">
+                        
+                        <input type="submit" value="ADMIN" class="btn btn-outline-primary">
+                    </form>
+                </div>
+         
+          
+        </div>
+        <div class="w3-display-bottomleft w3-padding-large">
+          <p>Powered by peter</p>
+
+        </div>
+      </div>
+      
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
+    <script type="text/javascript"> CKEDITOR.replace('editor') </script>
+</body>
+</html>

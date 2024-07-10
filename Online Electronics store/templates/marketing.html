@@ -1,0 +1,33 @@
+{%extends "admin_layout.html"%}
+{%block body%}
+    
+<h1 style="color: goldenrod;"><small>The sales data is as follows:</small></h1>
+    
+<table class="table table-striped table-dark" style="height: 100%;" style="position: relative; justify-items: center;">
+    <tr>
+        <th>SALE_ID</th>
+        <th>CUSTOMER_ID</th>
+        <th>CUSTOMER_NAME</th>
+        <th>PRODUCT_ID</th>
+        <th>PRODUCT_NAME</th>
+        
+        
+    </tr>
+    
+    {% for n in result %}
+    
+    <tr>
+        <td>{{n.sale_id}}</td>
+        <td>{{n.customer_id}}</td>
+        <td>{{n.customer_name}}</td>
+        <td>{{n.product_id}}</td>
+        <td>{{n.product_name }}</td>
+       
+    
+    </tr>
+
+    {% endfor %}
+   
+</table>
+{%endblock%}
+  

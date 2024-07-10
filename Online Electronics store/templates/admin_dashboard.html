@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electroniks</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  
+</head>
+<style>
+    body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+.w3-sidebar {width: 120px;background:white;}
+    body, html {height: 100%}
+    
+</style>
+<body >
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Admin section</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/"><img src="https://img.icons8.com/windows/50/000000/home-page.png" title="home"/></a>
+          </li>
+          
+         </ul>
+         <ul class="nav navbar-nav navbar-right">
+            {% if session.logged_in %}
+              <li class="nav-item"><a class="nav-link" href="/admin_logout">LOGOUT</a></li>
+              <li class="nav-item"><a class="nav-link" href="/admin_dashboard">Admin Dashboard</a></li>
+            {% else %}
+              
+              <li class="nav-item"><a class="nav-link" href="/admin_login">Login</a></li>
+            {% endif %}
+          </ul>
+        
+      </div>
+    </div>
+
+  </nav>
+    
+      <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+     
+        <img src="/static/logo.PNG" style="height:100px;width:100px;background-color: darkgray;">
+        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+          <i class="fa fa-gears w3-xxlarge"></i>
+          <p>CUSTOMER SERVICE</p>
+        </a>
+        <a href="#call" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+          <i class="fa fa-phone w3-xxlarge"></i>
+          <p>CALL CENTER</p>
+        </a>
+        <a href="#stocking" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+          <i class="fa fa-stack-exchange w3-xxlarge"></i>
+          <p>STOCKING CLERK</p>
+        </a>
+        <a href="#marketing" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+          <i class="fa fa-buysellads w3-xxlarge"></i>
+          <p>MARKETING</p>
+        </a>
+      </nav>
+      
+{% include 'includes/_messages.html' %}   
+<div class="w3-padding-large" id="main">
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="service">
+    
+    <img src="/static/customerservice3.PNG" alt="" class="w3-image" width="1500" height="1108">
+    <p>Always ready to give the customers a wow experience</p>
+    <form action="{{url_for('customer_service')}}">
+            
+      <input type="submit" value="CUSTOMER SERVICE" class="btn btn-outline-secondary">
+  </form>
+  </header>
+</div>
+<div class="w3-padding-large" id="call">
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="call">
+    
+    <img src="/static/customerservice1.PNG" alt="" class="w3-image" width="1500" height="1108">
+    <p>Electroniks customer service twenty four hours, everyday of the week</p>
+    <form action="{{url_for('call_center')}}" style="position: relative;top: 10px;">
+            
+      <input type="submit" value="CALL CENTER" class="btn btn-outline-secondary">
+  </form>
+  </header>
+</div>
+<div class="w3-padding-large" id="stocking">
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="stocking">
+    
+    <img src="/static/warehouse1.PNG" alt="" class="w3-image" width="1500" height="1108">
+    <p>We ensure that you get what you need anytime anywhere</p>
+    <form action="{{url_for('stocking_clerk')}}" style="position: relative;top: 10px;">
+            
+      <input type="submit" value="STOCKING CLERK" class="btn btn-outline-secondary">
+  </form>
+  </header>
+</div>
+<div class="w3-padding-large" id="marketing">
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="marketing">
+    
+    <img src="/static/Analysis1.PNG" alt="" class="w3-image" width="1500" height="1108">
+    <p>Analysis is our second name</p>
+    <form action="{{url_for('marketing')}}" style="position: relative;top: 10px;">
+            
+      <input type="submit" value="MARKETING" class="btn btn-outline-secondary">
+  </form>
+  </header>
+</div>
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
+    <script type="text/javascript"> CKEDITOR.replace('editor') </script>
+</body>
+</html>

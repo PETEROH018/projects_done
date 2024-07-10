@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electroniks</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body,h1 {font-family: "Raleway", sans-serif}
+        body, html {height: 100%}
+        .bgimg {
+            background-image: url('../static/background1.PNG');
+            min-height: 100%;
+            background-position: center;
+            background-size: cover;
+                }
+    </style>
+</head>
+<body>
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+    <div>{% include 'includes/_navbar.html' %}</div>
+    {% include 'includes/_messages.html' %}   
+    <hr>
+    <hr> 
+    
+    <div class="container">
+        
+       
+ 
+    <div class="w3-display-middle">
+        <div class='container'>
+            <h1 style="color: darkgrey;">Register</h1>
+            {% from "includes/_formhelpers.html" import render_field %}
+            <form method="POST" action = "">
+                <div class="form-group" style="color: darkgrey;">
+                    {{ render_field(form.name, class = "form-control") }}
+                </div>
+               
+                <div class="form-group"style="color: darkgrey;">
+                    {{ render_field(form.username, class = "form-control") }}
+                </div>
+                <div class="form-group" style="color: darkgrey;">
+                    {{ render_field(form.password, class = "form-control") }}
+                </div>
+                <div class="form-group" style="color: darkgrey;">
+                    {{ render_field(form.confirm, class = "form-control") }}
+                </div>
+                <p><input type="submit" class = "btn btn-outline-primary" classvalue="Submit"></p>
+            </form>
+        
+            </div>
+     
+      
+    </div>
+   
+  
+        
+    </div>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
+    <script type="text/javascript"> CKEDITOR.replace('editor') </script>
+    </div>
+    
+</body>
+</html>
+
+
+

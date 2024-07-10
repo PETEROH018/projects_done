@@ -1,0 +1,36 @@
+<nav class="navbar  navbar-expand-md navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Electroniks</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/"><img src="https://img.icons8.com/windows/50/000000/home-page.png" title="home"/></a>
+        </li>
+        
+       </ul>
+       <ul class="nav navbar-nav navbar-right">
+        {% if session.logged_in %}
+          <li class="nav-item"><a class="nav-link" href="/logout">LOGOUT</a></li>
+          <li class="nav-item"><a class="nav-link" href="/product">SHOP</a></li>
+         
+        {% else %}
+          <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+          <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+        {% endif %}
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        {% if session.logged_in %}
+        <li class="nav-item">
+          <a class="nav-link" href="/items_in_cart" title='View my cart'><img src="https://img.icons8.com/emoji/48/000000/shopping-cart-emoji.png" /><span class="badge">{{Items_in_cart}}</span></a>
+        </li>
+        {% endif %}
+      </ul>
+      
+    </div>
+  </div>
+
+</nav>

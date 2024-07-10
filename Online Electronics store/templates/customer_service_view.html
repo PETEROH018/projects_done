@@ -1,0 +1,61 @@
+{%extends "admin_layout.html"%}
+{%block body%}
+    
+<h1 style="color: goldenrod;"><small>Inventory:</small></h1>
+    
+<table class="table table-striped table-dark">
+    <tr>
+        <th>PRODUCT_ID</th>
+        <th>PRODUCT_NAME</th>
+        <th>UNIT_PRICE</th>
+        <th>AMOUNT</th>
+        <th>UNITS_SOLD</th>
+        <th>MANUFACTURER_ID</th>
+        
+    </tr>
+    
+    {% for n in result %}
+    
+    <tr>
+        <td>{{n.product_id}}</td>
+        <td>{{n.product_name}}</td>
+        <td>{{n.unit_price}}</td>
+        <td>{{n.amount}}</td>
+        <td>{{n.units_sold}}</td>
+        <td>{{n.manufacturer_id}}</td>
+           
+    
+    </tr>
+
+    {% endfor %}
+   
+</table>
+<h1 style="color: goldenrod;"><small>Inventory:</small></h1>
+<table class="table table-striped table-dark">
+    <tr>
+        <th>DELIVERY TRACKING NUMBER</th>
+        <th>VEHICLE_REGISTRATION</th>
+        <th>CUSTOMER_ID</th>
+        <th>PRODUCT_ID</th>
+        
+        
+    </tr>
+    
+    {% for n in result1 %}
+    
+    <tr>
+        <td>T{{n.tracking_number}}</td>
+        <td>Vehicle{{n.vehicle_registration}}</td>
+        <td>{{n.customer_id}}</td>
+        <td>{{n.product_id}}</td>
+        
+           
+    
+    </tr>
+
+    {% endfor %}
+   
+</table>
+
+{%endblock%}
+   
